@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Александр Ильин — Резюме</title>
+  <meta name="description" content="Full‑stack разработчик (Java/Spring, Python), PostgreSQL, Linux. Резюме с кликабельными ссылками в PDF." />
+  <meta property="og:title" content="Александр Ильин — Резюме" />
+  <meta property="og:description" content="Full‑stack разработчик (Java/Spring, Python), PostgreSQL, Linux." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/preview.jpg" />
+  <meta name="format-detection" content="telephone=no,email=yes,address=no" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root { --bg: #0b0c0f; --paper:#0f1116; --text:#e6e6e6; --muted:#a1a1aa; --brand:#7c3aed; --accent:#22d3ee; --ok:#10b981; --chip:#1f2937; --border:#242632; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+    .container { max-width: 960px; margin: 0 auto; padding: 24px; }
+    .card { background: linear-gradient(180deg, var(--paper), #0b0c0f 120%); border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+
+    header { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; }
+    .avatar { width: 128px; height: 158px; border-radius: 16px; background: #111; object-fit: cover; border: 1px solid var(--border); }
+
+    h1 { font-size: 28px; line-height: 1.2; margin: 0 0 6px; }
+    .subtitle { color: var(--muted); margin: 0 0 12px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .badge { padding: 4px 10px; border-radius: 999px; background: var(--chip); color: #d1d5db; border: 1px solid var(--border); font-size: 13px; }
+
+    .contacts-inline { margin-top: 12px; font-size: 14px; }
+    .contacts-inline a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .contacts-inline a:hover { text-decoration: underline; }
+
+    .icon-row { display: flex; gap: 12px; margin-bottom: 10px; }
+    .icon-only { width: 48px; height: 48px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; background: var(--chip); border: 1px solid var(--border); text-decoration: none; color: var(--text); }
+    .icon-only svg { width: 22px; height: 22px; fill: currentColor; }
+    .icon-only:hover { background: #0e121a; transform: translateY(-1px); }
+
+    .icon-captions { display: grid; gap: 6px; font-size: 14px; }
+    .icon-captions a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .icon-captions a:hover { text-decoration: underline; }
+
+    .row { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-top: 24px; }
+    section { background: linear-gradient(180deg, #0f1116, #0c0d12 120%); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+    section h2 { margin: 0 0 12px; font-size: 18px; letter-spacing: .3px; }
+    ul.clean { list-style: none; margin: 0; padding: 0; }
+    .job { padding: 14px 0; border-bottom: 1px dashed var(--border); }
+    .job:last-child { border-bottom: 0; }
+    .job .title { font-weight: 600; }
+    .job .meta { color: var(--muted); font-size: 14px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    input, textarea, button { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: #0c0d12; color: var(--text); outline: none; }
+    textarea { min-height: 120px; resize: vertical; }
+    button { cursor: pointer; font-weight: 600; background: linear-gradient(90deg, var(--brand), var(--accent)); border: none; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); text-decoration: none; color: var(--text); }
+    .muted { color: var(--muted); }
+    footer { text-align: center; color: var(--muted); margin: 24px 0 8px; font-size: 14px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .print { display: none; }
+
+    @media (max-width: 800px) {
+      .row { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---- Print-friendly + сохранение кликабельности ссылок ---- */
+    @page { size: A4; margin: 16mm; }
+    @media print {
+      html, body { height: auto; }
+      body { background: #fff; color: #111; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card, section { box-shadow: none; background: #fff; border: 1px solid #ddd; }
+      .badge { background: #f1f5f9; color:#0b0c0f; border-color:#e2e8f0; }
+      .links, form, .no-print { display: none !important; }
+      .print { display: inline; }
+
+      /* Ссылки: оставить кликабельность + сделать заметными на бумаге */
+      a[href] { color: #000 !important; text-decoration: underline; text-decoration-skip-ink: auto; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-weight: normal; }
+      a[href^="mailto:"]::after { content: " (" attr(href) ")"; }
+
+      /* Избегать разрывов блоков на странице */
+      header, section, .job { break-inside: avoid; page-break-inside: avoid; }
+      img { break-inside: avoid; }
+
+      /* Контраст обводок и иконок */
+      .icon-only { border-color: #bbb; }
+      .icon-captions a { color: inherit; }
+    }
+    @page { size: A4; margin: 16mm; }
+
+/* Печатные стили */
+@media print {
+  html, body { height: auto; }
+  body {
+    background: #fff; color: #111;
+    -webkit-print-color-adjust: exact; /* Chrome */
+    print-color-adjust: exact;         /* стандартизировано */
+  }
+  .card, section { box-shadow: none; background: #fff; border: 1px solid #ddd; }
+  /* ссылки — видимые и кликабельные */
+  a[href] { color: #000 !important; text-decoration: underline; }
+  /* Если хочешь, чтобы в бумажной версии рядом печатался сам URL: */
+  a[href^="http"]::after { content: " (" attr(href) ")"; }
+  a[href^="mailto:"]::after { content: " (" attr(href) ")"; }
+  /* защита от разрыва блоков */
+  header, section, .job { break-inside: avoid; page-break-inside: avoid; }
+  img { break-inside: avoid; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <header>
+        <img class="avatar" src="./photo_2025.jpg" alt="Фото" />
+        <div>
+          <h1>Александр Ильин</h1>
+          <p class="subtitle">Full‑stack / Веб‑разработчик — Санкт‑Петербург</p>
+
+          <div class="badges">
+            <span class="badge">Java</span>
+            <span class="badge">Python</span>
+            <span class="badge">Spring Web</span>
+            <span class="badge">PostgreSQL</span>
+            <span class="badge">Linux</span>
+          </div>
+
+          <div class="contacts-inline">
+            <span><strong>Email:</strong> <a href="mailto:aleksaha123ght@gmail.com" rel="noopener">aleksaha123ght@gmail.com</a></span> ·
+            <span><strong>Telegram:</strong> <a href="https://t.me/Gendalfblak" target="_blank" rel="noopener noreferrer">t.me/Gendalfblak</a></span> ·
+            <span><strong>GitHub:</strong> <a href="https://github.com/alex-tyz" target="_blank" rel="noopener noreferrer">github.com/alex-tyz</a></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="row">
+        <main>
+          <section>
+            <h2>Обо мне</h2>
+            <p>Full‑stack разработчик: Java/Spring Boot, PostgreSQL, Linux. Писал REST‑сервисы, Telegram‑ботов на Python, делал адаптивные интерфейсы на HTML/CSS/JS. Умею выстраивать полный цикл разработки.</p>
+          </section>
+
+          <section>
+            <h2>Опыт</h2>
+            <ul class="clean">
+              <li class="job">
+                <div class="title">Программист‑разработчик — Aurora: проекты и сервисы</div>
+                <div class="meta">03.2025 — н.в. · офис · Java, Python, SQL, Linux</div>
+                <div>
+                  Автоматизировал развёртывание Linux‑серверов и администрирование БД, сократив ручные операции на ~40%.<br>
+                  Реализовал REST‑интеграцию с ITSM365, ускорив обмен данными в 2 раза.<br>
+                  Разработал адресную книгу (500+ сотрудников) с фильтрацией и контейнеризацией.<br>
+                  <em>Стек: Java, Python, PostgreSQL/MySQL, Bash, PowerShell, Docker</em>
+                </div>
+              </li>
+
+              <li class="job">
+                <div class="title">Java‑разработчик — Проектная работа</div>
+                <div class="meta">09.2024 — 12.2024 · удалённо · Java, Spring Boot, PostgreSQL</div>
+                <div>
+                  Создал CRM‑сервис на Spring Boot для учёта заявок (до 1 000 записей/день).<br>
+                  Разработал REST API и веб‑интерфейсы (Servlets/JSP) с CRUD и ролевой авторизацией.<br>
+                  Оптимизировал SQL‑запросы, ускорив выборку данных на 30%.<br>
+                  <em>Стек: Java, Spring Boot, PostgreSQL, Tomcat</em>
+                </div>
+              </li>
+
+              <li class="job">
+                <div class="title">Backend‑разработчик — Проектная работа</div>
+                <div class="meta">08.2024 — 10.2024 · удалённо · Python, PostgreSQL, Docker</div>
+                <div>
+                  Разработал Telegram‑бота для CRM (до 200 заявок/день).<br>
+                  Спроектировал схему БД и оптимизировал таблицы.<br>
+                  Настроил развёртывание через Docker и Git, сократив время установки на 50%.<br>
+                  <em>Стек: Python, PostgreSQL, Docker, Git</em>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </main>
+
+        <aside>
+          <section>
+            <h2>Навыки</h2>
+            <div class="skills">
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">JS/TS</span>
+              <span class="badge">React/Next</span>
+              <span class="badge">Node.js</span>
+              <span class="badge">Git</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Образование</h2>
+            <div class="job">
+              <div class="title">Университет ИТМО</div>
+              <div class="meta">ПИиКТ, СППО · окончание в 2027</div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Языки</h2>
+            <div class="job">Английский — B2/C1</div>
+            <div class="job">Профессиональный: свободно читаю техдокументацию, прохожу англоязычные курсы</div>
+          </section>
+
+          <section>
+            <h2>Проекты</h2>
+            <div class="icon-row">
+              <a class="icon-only" href="https://github.com/alex-tyz" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.11.79-.25.79-.56l-.01-2c-3.2.7-3.87-1.39-3.87-1.39-.53-1.35-1.3-1.71-1.3-1.71-1.07-.74.08-.72.08-.72 1.18.08 1.81 1.22 1.81 1.22 1.05 1.8 2.75 1.28 3.42.98.11-.78.41-1.28.75-1.57-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.2-3.08-.12-.3-.52-1.52.11-3.17 0 0 .98-.31 3.21 1.18a11.1 11.1 0 0 1 5.84 0c2.23-1.49 3.21-1.18 3.21-1.18.63 1.65.23 2.87.11 3.17.75.8 1.2 1.83 1.2 3.08 0 4.41-2.69 5.38-5.25 5.67.42.36.8 1.07.8 2.17l-.01 3.22c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+              </a>
+
+              <a class="icon-only" href="https://drive.google.com/drive/folders/1fiY85e8AP9l4ZXujB3xEvo_jEyoaC0eH?usp=sharing" target="_blank" rel="noopener" aria-label="Достижения (Google Drive)">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.7 4h8.6l3.7 6.4-4.3 7.4H6.3L2.6 10.4 7.7 4zm1.3 2-3.1 4.4 2.1 3.6h6.9l2.1-3.6L14.9 6H9zM4.7 12l2.7 4.6H5L2.3 12h2.4zm16.6 0-2.7 4.6h-2.4L18.9 12h2.4z"/></svg>
+              </a>
+            </div>
+
+            <div class="icon-captions">
+              <div><strong>GitHub:</strong> <a href="https://github.com/alex-tyz" target="_blank" rel="noopener">github.com/alex-tyz</a></div>
+              <div><strong>Достижения:</strong> <a href="https://drive.google.com/drive/folders/1fiY85e8AP9l4ZXujB3xEvo_jEyoaC0eH?usp=sharing" target="_blank" rel="noopener">Google Drive</a></div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="y"></span> Александр Ильин ·
+      <span class="print">
+        Контакты:
+        <a href="mailto:aleksaha123ght@gmail.com">aleksaha123ght@gmail.com</a> ·
+        <a href="https://github.com/alex-tyz">github.com/alex-tyz</a> ·
+        <a href="https://t.me/Gendalfblak">t.me/Gendalfblak</a>
+      </span>
+    </footer>
+  </div>
+
+  <!-- Структурированные данные -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Александр Ильин",
+    "jobTitle": "Full‑stack разработчик",
+    "email": "aleksaha123ght@gmail.com",
+    "url": "",
+    "sameAs": [
+      "https://github.com/alex-tyz",
+      "https://t.me/Gendalfblak"
+    ]
+  }
+  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -65,7 +65,7 @@
       .contact-grid { grid-template-columns: 1fr; }
     }
 
-    /* ---- Print-friendly + сохранение кликабельности ссылок ---- */
+
     @page { size: A4; margin: 16mm; }
     @media print {
       html, body { height: auto; }
@@ -75,36 +75,36 @@
       .links, form, .no-print { display: none !important; }
       .print { display: inline; }
 
-      /* Ссылки: оставить кликабельность + сделать заметными на бумаге */
+     
       a[href] { color: #000 !important; text-decoration: underline; text-decoration-skip-ink: auto; }
       a[href^="http"]::after { content: " (" attr(href) ")"; font-weight: normal; }
       a[href^="mailto:"]::after { content: " (" attr(href) ")"; }
 
-      /* Избегать разрывов блоков на странице */
+    
       header, section, .job { break-inside: avoid; page-break-inside: avoid; }
       img { break-inside: avoid; }
 
-      /* Контраст обводок и иконок */
+    
       .icon-only { border-color: #bbb; }
       .icon-captions a { color: inherit; }
     }
     @page { size: A4; margin: 16mm; }
 
-/* Печатные стили */
+
 @media print {
   html, body { height: auto; }
   body {
     background: #fff; color: #111;
-    -webkit-print-color-adjust: exact; /* Chrome */
-    print-color-adjust: exact;         /* стандартизировано */
+    -webkit-print-color-adjust: exact; 
+    print-color-adjust: exact;      
   }
   .card, section { box-shadow: none; background: #fff; border: 1px solid #ddd; }
-  /* ссылки — видимые и кликабельные */
+  
   a[href] { color: #000 !important; text-decoration: underline; }
-  /* Если хочешь, чтобы в бумажной версии рядом печатался сам URL: */
+ 
   a[href^="http"]::after { content: " (" attr(href) ")"; }
   a[href^="mailto:"]::after { content: " (" attr(href) ")"; }
-  /* защита от разрыва блоков */
+ 
   header, section, .job { break-inside: avoid; page-break-inside: avoid; }
   img { break-inside: avoid; }
 }
@@ -187,7 +187,7 @@
             <h2>Образование</h2>
             <div class="job">
               <div class="title">Университет ИТМО</div>
-              <div class="meta">ПИиКТ, СППО · окончание в 2027</div>
+              <div class="meta">ПИиКТ, СППО · </div>
             </div>
           </section>
 
@@ -229,7 +229,7 @@
     </footer>
   </div>
 
-  <!-- Структурированные данные -->
+ 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -247,4 +247,5 @@
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
 
